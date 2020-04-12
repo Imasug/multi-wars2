@@ -14,7 +14,7 @@ pipeline {
                 sh 'echo ${MODE}'
                 sh 'echo ${DOCKER_REPO}'
                 script {
-                    docker.withRegistry('${DOCKER_REPO}', DOCKER_REPO_CRED) {
+                    docker.withRegistry("${DOCKER_REPO}", DOCKER_REPO_CRED) {
                         docker.build(IMAGE_TAG, '.').push()
                     }
                 }
