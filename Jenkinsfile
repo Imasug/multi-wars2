@@ -11,7 +11,9 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                docker.build(IMAGE_TAG, '.')
+                script {
+                    docker.build(IMAGE_TAG, '.')
+                }
                 // script {
                 //     docker.withRegistry("${DOCKER_REPO}", DOCKER_REPO_CRED) {
                 //         docker.build(IMAGE_TAG, '.').push()
@@ -21,8 +23,10 @@ pipeline {
         }
         stage ('Docker Push') {
             steps {
-                docker.withRegistry("${DOCKER_REPO}", DOCKER_REPO_CRED) {
-                    docker.image(IMAGE_TAG).push()
+                script {
+                    docker.withRegistry("${DOCKER_REPO}", DOCKER_REPO_CRED) {
+                        docker.image(IMAGE_TAG).push()
+                    }
                 }
             }
         }
