@@ -8,6 +8,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
+                sh 'echo ${PROFILE}'
                 sh 'docker images'
             }
         }
