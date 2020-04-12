@@ -14,11 +14,6 @@ pipeline {
                 script {
                     docker.build(IMAGE_TAG, '.')
                 }
-                // script {
-                //     docker.withRegistry("${DOCKER_REPO}", DOCKER_REPO_CRED) {
-                //         docker.build(IMAGE_TAG, '.').push()
-                //     }
-                // }
             }
         }
         stage ('Docker Push') {
