@@ -1,0 +1,2 @@
+- Jenkinsの「Git Parameter Plugin」を利用する。
+- ジョブ設定時に「Lightweight checkout」を外す。
