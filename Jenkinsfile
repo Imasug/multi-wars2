@@ -11,12 +11,18 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'echo ${MODE}'
-                sh 'echo ${DOCKER_REPO}'
-                script {
-                    docker.withRegistry("${DOCKER_REPO}", DOCKER_REPO_CRED) {
-                        docker.build(IMAGE_TAG, '.').push()
-                    }
+                docker.build(IMAGE_TAG, '.')
+                // script {
+                //     docker.withRegistry("${DOCKER_REPO}", DOCKER_REPO_CRED) {
+                //         docker.build(IMAGE_TAG, '.').push()
+                //     }
+                // }
+            }
+        }
+        stage ('Docker Push') {
+            steps {
+                docker.withRegistry("${DOCKER_REPO}", DOCKER_REPO_CRED) {
+                    docker.image(IMAGE_TAG).push()
                 }
             }
         }
