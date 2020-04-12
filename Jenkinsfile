@@ -1,9 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('Maven Build') {
             steps {
-                sh 'git branch'
+                sh 'mvn packege'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                sh 'docker images'
             }
         }
     }
