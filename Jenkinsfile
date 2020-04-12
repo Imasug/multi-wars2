@@ -1,4 +1,5 @@
 def IMAGE_TAG = 'multi-wars:latest'
+def DOCKER_REPO_CRED = 'ocp4-docker-repos'
 
 pipeline {
     agent any
@@ -13,7 +14,9 @@ pipeline {
                 sh 'echo ${MODE}'
                 sh 'echo ${DOCKER_REPO}'
                 script {
-                    docker.build(IMAGE_TAG, '.')
+                    docker.withRegistry("${DOCKER_REPO}", DOCKER_REPO_CRED) {
+                        docker.build(IMAGE_TAG, '.')
+                    }
                 }
             }
         }
