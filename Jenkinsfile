@@ -1,16 +1,20 @@
+def IMAGE_TAG = ''
+
 pipeline {
     agent any
     stages {
         stage('Maven Build') {
             steps {
-                sh 'mvn package'
+                sh 'mvn clean package'
             }
         }
         stage('Docker Build') {
             steps {
                 sh 'echo ${MODE}'
                 sh 'echo ${DOCKER_REPO}'
-                sh 'docker images'
+                script {
+                    docker.build(IMAGE_TAG, '.')
+                }
             }
         }
     }
