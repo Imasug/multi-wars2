@@ -1,4 +1,4 @@
-def IMAGE_TAG = ''
+def IMAGE_TAG = 'multi-wars:latest'
 
 pipeline {
     agent any
