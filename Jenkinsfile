@@ -8,7 +8,8 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'echo ${PROFILE}'
+                sh 'echo ${MODE}'
+                sh 'echo ${DOCKER_REPO}'
                 sh 'docker images'
             }
         }
