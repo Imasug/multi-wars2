@@ -1,4 +1,4 @@
-def IMAGE_TAG = 'multi-wars:latest'
+def IMAGE_TAG = 'multi-wars2:latest'
 def DOCKER_REPO_CRED = 'ocp4-docker-repos'
 
 pipeline {
