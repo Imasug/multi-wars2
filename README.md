@@ -2,3 +2,4 @@
 - Jenkinsの「Git Parameter Plugin」を利用する。
 - ジョブ設定時に「Lightweight checkout」を外す。
 - 環境に応じたJenkinsの設定差異はJenkinsで設定できる環境変数で吸収する。
+- ワークスペース内に.m2ディレクトリを配置するために、環境変数「MAVEN_OPT」に「-Duser.home=.」を設定する。
