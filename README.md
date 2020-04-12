@@ -1,3 +1,4 @@
 - 「Do not allow concurrent builds」をチェックする。
 - Jenkinsの「Git Parameter Plugin」を利用する。
 - ジョブ設定時に「Lightweight checkout」を外す。
+- 環境に応じたJenkinsの設定差異はJenkinsで設定できる環境変数で吸収する。
